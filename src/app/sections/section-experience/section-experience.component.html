@@ -1,0 +1,47 @@
+<div class="section-experience">
+    <ng-container *ngFor="let item of items; let i = index; let start = first; let end = last">
+        <div class="section-experience_row">
+            <section class="empty-col"></section>
+            <section class="section-experience_line">
+                <span *ngIf="start" class="section-experience_line_start"></span>
+                <span class="section-experience_line_circle"></span>
+                <span *ngIf="end" class="section-experience_line_end"></span>
+            </section>
+            <section class="section-experience_items">
+                <time class="section-experience_items_date">{{item.dates}}</time>
+                <ng-container *ngIf="item.type === 'EXP'; else formationTemplate">
+                    <div class="card section-experience_items_card" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'">
+                        <div class="section-experience_items_card_title">
+                            <mat-icon class="margin-small-right">business_center</mat-icon>
+                            <span>{{item.position}}</span>
+                        </div>
+                        <div class="section-experience_items_card_content">
+                            <div class="section-experience_items_card_content_location margin-medium-bottom">
+                                {{item.company}}
+                            </div>
+                            <div class="section-experience_items_card_content_description">
+                                <ng-container *ngFor="let characteristic of item.characteristics">
+                                    <span>-&nbsp;{{characteristic}}</span>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #formationTemplate>
+                    <div class="card section-experience_items_card" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'">
+                        <div class="section-experience_items_card_content">
+                            <div class="section-experience_items_card_content_title-formation">
+                                <mat-icon class="margin-small-right">school</mat-icon>{{item.position}}
+                            </div>
+                            <div class="section-experience_items_card_content_location margin-medium-top">
+                                {{item.company}}
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </section>
+        </div>
+    </ng-container>
+</div>
+
+

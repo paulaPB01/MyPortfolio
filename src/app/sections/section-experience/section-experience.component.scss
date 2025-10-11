@@ -1,0 +1,192 @@
+@import "src/styles.scss";
+
+.section-experience {
+    max-width: 1100px;
+    margin: 10px auto;
+    font-family: $font-family;
+    color: $color-dark-text;
+
+    &_row {
+        display: grid;
+        grid-template-columns: 1fr 3px 1fr;
+        grid-column-gap: 20px;
+        padding: 0 20px;
+    }
+
+    &_line {
+        position: relative;
+        background-color: $color-accent;
+        grid-area: the_line;
+
+        &_circle {
+            content: '';
+            position: absolute;
+            width: 17px;
+            height: 17px;
+            background-color: $color-accent;
+            border: 3px solid $color-main1;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 18px;
+        }
+
+        &_start {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: $color-accent;
+            right: -11px;
+            transform: translateY(-50%);
+        }
+
+        &_end {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: $color-accent;
+            right: -11px;
+            top: 100%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &_items {
+        grid-area: the_item;
+        padding: 10px 0;
+
+        &_date {
+            position: relative;
+            display: inline-block;
+            padding: 5px 12px;
+            margin-bottom: 20px;
+            background-color: $color-accent;
+            color: $color-light-text;
+        }
+
+        // linea que conecta a la linea de tiempo
+        &_date::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background-color: $color-accent;
+            top: 50%;
+            right: 100%;
+            transform: translateY(-50%);
+        }
+
+        &_card {
+            position: relative;
+            background-color: $color-light-text;
+            padding: 0 !important;
+            border-left: 5px solid $color-accent;
+
+             // triángulo que conecta la tarjeta con la fecha
+            &::before {
+                content: '';
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: $color-accent;
+                top: -10px;
+                left: 15px;
+                clip-path: polygon(0% 50%, 50% 0, 100% 50%, 0 50%);
+            }
+
+            &_title {
+                position: relative;
+                width: calc(100% + 4px);
+                height: 100%;
+                top: -3px;
+                left: -3px;
+                display: inline;
+                padding: 10px;
+                background-color: $color-accent;
+                border-radius: 8px 8px 0 0 ;
+                text-align: center;
+                color: $color-light-text;
+                font-size: $font-medium;
+                font-weight: bold;
+
+                mat-icon {
+                    color: $color-light-text;
+                    margin-top: 3px;
+                }
+            }
+
+            &_content {
+                padding: 15px 20px;
+                font-size: $font-small;
+                color: $color-dark-text;
+
+                &_location {
+                    font-style: italic;
+                }
+
+                &_title-formation {
+                    font-size: $font-medium;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                }
+
+                &_description span{
+                    line-height: 30px;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .empty_column {
+        grid-area: empty_column;
+    }
+    
+    &_row:nth-child(odd) {
+        grid-template-areas: 'empty_column the_line the_item';
+    }
+
+     &_row:nth-child(even) {
+        grid-template-areas: 'the_item the_line empty_column';
+        text-align: right;
+    }
+
+    &_row:nth-child(even) &_items_date::before {
+        right: initial;
+        left: 100%;
+    }
+
+    &_row:nth-child(even) &_items_card::before {
+        right: 15px;
+        left: initial;
+    }
+
+    &_row:nth-child(even) &_items_card {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-experience {
+
+        &_row:nth-child(odd),
+        &_row:nth-child(even) {
+            grid-template-columns: 3px 1fr;
+            grid-template-areas: 'the_line the_item';
+            text-align: left;
+        }
+
+        &_row:nth-child(even) &_items_date::before {
+            right: 100%;
+            left: initial;
+        }
+       
+         &_row:nth-child(even) &_items_card::before {
+            right: initial;
+            left: 15px;
+        }
+    }
+}

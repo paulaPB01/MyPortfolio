@@ -1,0 +1,16 @@
+@import "../styles.scss";
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-main1;
+}
+
+/* Asegura que el componente raíz ocupe todo el espacio */
+app-root {
+  display: block;
+  height: 100%;
+}

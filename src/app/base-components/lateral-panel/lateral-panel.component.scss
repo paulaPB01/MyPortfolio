@@ -1,0 +1,74 @@
+@import "../../../styles.scss";
+
+:host ::ng-deep .lateral-panel {
+    width: 300px;
+    height: 100%;
+    align-items: center;
+    background-color: $color-main2;
+    
+    .p-panelmenu {
+        width: 300px;
+    
+        .p-panelmenu-panel {
+            margin-bottom: 0;
+
+            .p-panelmenu-header {
+                
+                .p-panelmenu-header-content {
+                    border: none;
+                    background-color: $color-main2;
+                    border-radius: 0;
+
+                    .p-panelmenu-header-action {
+                        color: $color-main1;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: darken($color-main1, 15%);
+                        }
+                    }
+
+                    &:hover {
+                        background-color: lighten($color-main2, 5%);
+                    }
+                }
+            }
+            
+            .p-panelmenu-content {
+                background-color: $color-main2;
+                border: none;
+                padding-bottom: 0.5px;
+
+                .p-panelmenu-root-list {
+                    padding-left: 12px !important;
+                }
+
+                .p-submenu-list:not(.p-panelmenu-root-list) {
+                    padding-left: 23px;
+                }
+
+                .p-menuitem-content {
+                    background-color: $color-main2;
+
+                    .p-menuitem-link {
+                        color: $color-main2 !important;
+                        text-decoration: none;
+
+                         .p-submenu-icon, .p-menuitem-text {
+                            color: $color-dark-text;
+                         } 
+                         
+                         .p-menuitem-icon {
+                            color: $color-accent;
+                         }
+                    }
+
+                    &:hover {
+                        background-color: darken($color-main2, 5%);
+                    }
+                }
+            }
+        }
+    }
+}
+

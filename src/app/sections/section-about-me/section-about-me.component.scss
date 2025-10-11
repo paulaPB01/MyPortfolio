@@ -1,0 +1,17 @@
+.section-about-me {
+    &_container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_photo {
+        width: 200px;
+        height: 200px;
+        float: right;
+        border-radius: 50%;
+        background: url("../../../assets/img/foto_perfil.jpeg") no-repeat center center/cover;
+        -webkit-shape-outside: circle();
+        shape-outside: circle();
+        shape-margin: 16px;
+    }
+}

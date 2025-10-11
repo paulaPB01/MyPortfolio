@@ -1,0 +1,97 @@
+@import "src/styles.scss";
+
+.landscape-animation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    padding-top: 50px;
+
+    &_img {
+        background:url( '../../../assets/img/land33.png') no-repeat center center/cover;
+        width: 100%;
+        height: 100%;
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0) 100%);
+        mask-image: linear-gradient(to bottom, black 60%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0) 100%);
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+    }
+
+    &_text {
+        position: absolute;
+        max-width: 400px;
+        top: 60%;
+        left: 5%;
+        
+        h1 {
+            color: $color-main3;
+            font-size: 75px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        &_info {
+            background-color: rgba(46, 9, 93, 0.6);
+            padding-right: 12px;
+            border-radius: 8%;
+
+            div {
+                color: $color-light-text;
+                font-size: $font-small;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
+
+        .typing-line {
+            border-right: 2px solid transparent;
+            width: 0;
+            animation: typing 3s steps(40, end) forwards, blink 0.8s step-end infinite;
+        }
+
+        // Delay para que aparezcan en orden
+        .line0 {
+            animation-delay: 0.5s, 0.5s;
+            border-right-color: $color-main3 !important;
+        }
+        .line1 {
+            animation-delay: 3.0s, 3.0s;
+            border-right-color: $color-light-text !important;
+        }
+        .line2 {
+            animation-delay: 6s, 6s;
+            border-right-color: $color-light-text !important;
+        }
+        .line3 {
+            animation-delay: 7s, 7s;
+            border-right-color: $color-light-text !important;
+        }
+        .line4 {
+            animation-delay: 10s, 10s;
+            border-right-color: $color-light-text !important;
+        }
+
+        // Cuando termina la animación, el cursor desaparece
+        .typing-line {
+            animation-fill-mode: forwards;
+        }
+
+    @keyframes typing {
+        from {
+            width: 0;
+            border-right-color: transparent;
+        }
+        to {
+            width: 100%;
+            border-right-color: transparent !important;
+        }
+    }
+
+    @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+        
+    }
+}
