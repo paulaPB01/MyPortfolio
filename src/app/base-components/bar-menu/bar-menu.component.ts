@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MenuItem } from 'primeng/api/menuitem';
+import { BarMenuItem } from 'src/app/share/model/bar-menu.model';
 
 @Component({
   selector: 'app-bar-menu',
@@ -8,5 +8,5 @@ import { MenuItem } from 'primeng/api/menuitem';
 })
 
 export class BarMenuComponent {
-  @Input() items: MenuItem[] = [];
+  @Input() items: BarMenuItem[] = [];
 }

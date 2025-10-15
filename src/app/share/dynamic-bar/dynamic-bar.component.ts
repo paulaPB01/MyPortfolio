@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from '@angular/core';
+import { DynamicBarModel } from '../model/dynamic-bar.model';
 
 @Component({
   selector: 'app-dynamic-bar',
@@ -6,7 +7,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from '@angular
   styleUrls: ['./dynamic-bar.component.scss']
 })
 export class DynamicBarComponent implements AfterViewInit, OnDestroy {
-  @Input() item: any;
+  @Input() item: DynamicBarModel = new DynamicBarModel();
   counter = 20;
   animatedLevel = 0;
 
@@ -38,6 +39,10 @@ export class DynamicBarComponent implements AfterViewInit, OnDestroy {
   }
 
   private animateCounter() {
+    if (!this.item?.level) {
+      return;
+    }
+
     const duration = 800; // ms
     const steps = 50;
     const increment = this.item.level / steps;
@@ -45,8 +50,8 @@ export class DynamicBarComponent implements AfterViewInit, OnDestroy {
 
     const interval = setInterval(() => {
       this.counter += Math.round(increment);
-      if (this.counter >= this.item.level) {
-        this.counter = this.item.level;
+      if (this.item.level !== undefined && this.counter >= this.item.level) {
+        this.counter = this.item.level!;
         clearInterval(interval);
       }
     }, intervalTime);

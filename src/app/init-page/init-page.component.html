@@ -3,26 +3,21 @@
       <app-bar-menu [items]="barMenuItems"></app-bar-menu>
    </div>
 
-   <div>
-      <app-landscape-animation></app-landscape-animation>
-   </div>
-
-   <div class="init-page_sections content">
-      <div [id]="sectionsPage.ABOUT_ME" class="my-section">
-         <app-section-about-me></app-section-about-me>
-      </div>
-      <div [id]="sectionsPage.SKILLS" class="my-section">
-         <app-section-skills></app-section-skills>
+   <div #scrollContent class="init-page_content">
+      <div [id]="sectionsPage.LANDSCAPE" class="my-landscape">
+         <app-landscape-animation></app-landscape-animation>
       </div>
 
-      <div [id]="sectionsPage.PROYECTS" class="my-section">
-         <app-section-proyects></app-section-proyects>
-      </div>
-      <div [id]="sectionsPage.EXPERIENCE" class="my-section">
-         <app-section-experience></app-section-experience>
-      </div>
-      <div [id]="sectionsPage.CONTACT" class="my-section">
-         <app-section-contact></app-section-contact>
+      <div class="init-page_sections content">
+         <div [id]="sectionsPage.ABOUT_ME" class="my-section">
+            <app-section-about-me></app-section-about-me>
+         </div>
+         <div [id]="sectionsPage.SKILLS" class="my-section">
+            <app-section-skills></app-section-skills>
+         </div>
+         <div [id]="sectionsPage.EXPERIENCE" class="my-section">
+            <app-section-experience></app-section-experience>
+         </div>
       </div>
    </div>
 </div>

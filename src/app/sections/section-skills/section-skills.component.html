@@ -1,15 +1,40 @@
-<div class="section-skills content">
+<div class="section-skills">
     <div class="row justify-content-center">
         <ng-container *ngFor="let skills of skillsList; let i = index">
-            <div class="col-12 col-md-6 col-lg-4 margin-big-top">
-                <div class="card section-skills_card">
-                    <span class="section-skills_card_title text-accent margin-medium-bottom">{{skills.group}}</span>
-                    <div class="section-skills_card_container">
-                        <ng-container *ngFor="let skill of skills.skills">
-                            <app-dynamic-bar [item]="skill"></app-dynamic-bar>
-                        </ng-container>
+            <div class="col-12 col-md-6 col-lg-4 margin-big-bottom">
+                <ng-container *ngIf="skills?.groupSkill; else singleSkill">
+                    <ng-container *ngFor="let group of skills.groupSkill; let end = last">
+                        <div class="row g-0 row-col-1" [class.margin-big-bottom]="!end">
+                            <ng-container *ngTemplateOutlet="skillsCardTemplate; context: { $implicit: group }"
+                            ></ng-container>
+                        </div>
+                    </ng-container>
+                </ng-container>
+                <ng-template #singleSkill>
+                    <ng-container *ngTemplateOutlet="skillsCardTemplate; context: { $implicit: skills }"
+                    ></ng-container>
+                </ng-template>
+                <ng-template #skillsCardTemplate let-skills>                
+                    <div class="card section-skills_card">
+                        <span class="section-skills_card_title text-accent margin-medium-bottom">{{skills.group}}</span>
+                        <div class="section-skills_card_container">
+                            <ng-container *ngFor="let skill of skills.skills">
+                                <div *ngIf="skill?.level">
+                                    <app-dynamic-bar [item]="skill"></app-dynamic-bar>
+                                </div>
+                                <div *ngIf="skill?.certificate">
+                                    <div class="align-content-end">
+                                        <div class="section-skills_card_container_title">{{skill.name}}</div>
+                                        <div class="section-skills_card_container_certified">
+                                            <mat-icon class="margin-small-right">verified</mat-icon>
+                                            <div>{{skill.certificate}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
                     </div>
-                </div>
+                </ng-template>
             </div>
         </ng-container>
     </div>

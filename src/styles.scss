@@ -71,6 +71,22 @@ $font-family: sourceSansPro-Light sans-serif;
     justify-content: center;
 }
 
+.font-big {
+    font-size: $font-big !important;
+}
+
+.font-medium {
+    font-size: $font-medium !important;
+}
+
+.font-small {
+    font-size: $font-small !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
 .text-accent {
     font-size: $font-medium;
     font-family: $font-family;
@@ -83,6 +99,11 @@ $font-family: sourceSansPro-Light sans-serif;
     font-family: $font-family;
     font-weight: bold;
     color: $color-main3;
+}
+
+.tex-color-main2 {
+    font-family: $font-family;
+    color: $color-main2;
 }
 
 .light-text {
@@ -176,6 +197,25 @@ $font-family: sourceSansPro-Light sans-serif;
     justify-content: center;
 }
 
+.animate-scroll-item {
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.8s ease-out;
+}
+
+.fade-left {
+    transform: translateX(-50px);
+}
+
+.fade-right {
+    transform: translateX(50px);
+}
+
+.on-scroll {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
 @media(max-width: 780px) {
     .content {
         padding: 22px;
@@ -187,6 +227,7 @@ $font-family: sourceSansPro-Light sans-serif;
         padding: 12px;
     }
 }
+
 html, body { height: 100%; }
 body { 
     margin: 0; 
@@ -194,7 +235,7 @@ body {
     font-size: $font-small;
 
     mat-icon {
-        font-size: $font-icon;
+        font-size: $font-icon !important;
         color: $color-accent;
     }
 }

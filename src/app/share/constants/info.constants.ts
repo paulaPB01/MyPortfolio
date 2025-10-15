@@ -8,7 +8,8 @@ export const aboutMeConstants = {
 
 export const skillsConstants = [
     {
-        "group":"Programación y desarrollo", "skills": [
+        "group":"Programación y desarrollo",
+         "skills": [
             {"name": "JavaScript", "level": 80},
             {"name": "TypeScript", "level": 80},
             {"name": "HTML y CSS", "level": 80},
@@ -21,19 +22,32 @@ export const skillsConstants = [
             {"name": "Cloud Computing (AWS, Azure)", "level": 50},
         ]   
     },
+    {   groupSkill: [
+        {   "group":"Análisis de datos",
+            "skills": [
+                {"name": "Paquetes estadísticos (SPSS, Statgraphics, RStudio)", "level": 60},
+                {"name": "Librerías de Analisis de datos (Pandas, NumPy, Seaborn)", "level": 60},
+                {"name": "Visualización de datos (Origins, Matplotlib)", "level": 60},
+                {"name": "Librerías de machine learning (Scikit-learn, TensorFlow, Keras)", "level": 60},
+            ]
+        },
+        {
+            "group":"Gestión de proyectos",
+            "skills": [
+                {"name": "Office365", "level": 90},
+                {"name": "Jira", "level": 50},
+            ],
+        },
+        {
+            "group":"Idiomas",
+            "skills": [
+                {"name": "Ingles", "certificate": "Cambridge B2 First"},
+            ]
+        }
+    ]},
     {
-        "group":"Análisis de datos. getión e idiomas", "skills": [
-            {"name": "Paquetes estadísticos (SPSS, Statgraphics, RStudio)", "level": 60},
-            {"name": "Librerías de Analisis de datos (Pandas, NumPy, Seaborn)", "level": 60},
-            {"name": "Visualización de datos (Origins, Matplotlib)", "level": 60},
-            {"name": "Librerías de machine learning (Scikit-learn, TensorFlow, Keras)", "level": 60},
-            {"name": "Office365", "level": 90},
-            {"name": "Jira", "level": 50},
-            {"name": "Ingles B2"},
-        ]
-    },
-    {
-        "group": "Habilidades blandas", "skills": [
+        "group": "Soft skills",
+         "skills": [
             {"name": "Capacidad de aprendizaje", "level": 90},
             {"name": "Capacidad de adaptación", "level": 90},
             {"name": "Resolución de problemas", "level": 70},

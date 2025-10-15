@@ -6,6 +6,27 @@
     justify-content: center;
     display: flex;
     background-color: $color-main2;
+    padding: 6px;
+
+    &_item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 16px;
+        padding: 8px;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &_icon, &_label {
+            display: flex;
+            color: $color-main1 !important;
+            font-family: $font-family;
+        }
+
+        &_active { 
+            background: darken($color-main2, 10%);
+        }
+    }
 
     p-menubar {
         height:100%
@@ -66,5 +87,15 @@
                 }
             }
         }
+    }
+
+    /* Forzar el menubar siempre visible */
+    .p-menubar {
+        display: flex !important;
+    }
+
+    /* Ocultar botón hamburguesa */
+    .p-menubar .p-menubar-button {
+        display: none !important;
     }
 }

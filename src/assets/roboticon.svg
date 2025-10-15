@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Robot icon">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b0e6d"/>
+      <stop offset="100%" stop-color="#3d149d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Cabeza del robot -->
+  <rect x="14" y="14" width="36" height="28" rx="8" ry="8"
+        fill="url(#grad)" stroke="#B60562" stroke-width="1.5"/>
+
+  <!-- Visor -->
+  <rect x="20" y="22" width="24" height="10" rx="5" ry="5"
+        fill="#230b5a" stroke="#B60562" stroke-width="1.5"/>
+
+  <!-- Ojos -->
+  <circle cx="26" cy="27" r="2" fill="#B60562"/>
+  <circle cx="38" cy="27" r="2" fill="#B60562"/>
+
+  <!-- Antena -->
+  <line x1="32" y1="8" x2="32" y2="14"
+        stroke="#B60562" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="32" cy="7" r="2" fill="#B60562"/>
+
+  <!-- Cuerpo -->
+  <rect x="22" y="42" width="20" height="10" rx="3" ry="3"
+        fill="url(#grad)" stroke="#B60562" stroke-width="1.2"/>
+</svg>

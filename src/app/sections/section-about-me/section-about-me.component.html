@@ -1,11 +1,18 @@
 <div class="section-about-me content">
-    <div class="row section-about-me_container">
-        <div class="col-6 section-about-me_description">
-            <h1 class="text-gold">
-                {{personalInformationConstant.name}}
-            </h1>
-            <span class="light-text margin-medium-top">{{aboutMeConstants.description}}</span>
+    <h1 class="text-gold margin-big-bottom">
+            {{personalInformationConstant.name}}
+    </h1>
+    <div class="section-about-me_container">
+        <div class="circle">
+            <div class="section-about-me_photo">
+                <img src="../../../assets/img/foto_perfil.jpeg" no-repeat center center> 
+            </div>
         </div>
-        <div class="col-auto gx-0 section-about-me_photo"></div>
-    </div>
+        <p class="section-about-me_description light-text margin-medium-top">{{aboutMeConstants.description}}</p>
+    </div> 
+    <div class="d-flex justify-content-center margin-medium-top">
+        <a href="https://www.linkedin.com/in/paula-pérez-blanco/">
+            <i class="bi bi-linkedin tex-color-main2 font-big pointer"></i>
+        </a>
+    </div>  
 </div>

@@ -1,7 +1,7 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { sectionsPageConstants } from '../constants/sectionsPage.constants';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { sectionsPageConstants } from '../share/constants/sectionsPage.constants';
 import { TranslateService } from '@ngx-translate/core';
-import { myTranslateService } from '../services/myTranslate.service';
+import { myTranslateService } from '../share/services/myTranslate.service';
 
 @Component({
   selector: 'app-init-page',
@@ -10,16 +10,16 @@ import { myTranslateService } from '../services/myTranslate.service';
 })
 
 export class InitPageComponent implements OnInit, AfterViewInit {
+  @ViewChild('scrollContent') scrollContent: any;
   sectionsPage = sectionsPageConstants;
   private scrollObserver:  IntersectionObserver | null = null;
   activeSection: string = '';
   barMenuItems: any[] = [];
   items = [
-    {label: 'MY_ABOUT_ME', icon: 'pi pi-fw pi-user', section: this.sectionsPage.ABOUT_ME, command: () => this.scrollTo(this.sectionsPage.ABOUT_ME)},
-    {label: 'MY_SKILLS', icon: 'pi pi-fw pi-user', section: this.sectionsPage.SKILLS, command: () => this.scrollTo(this.sectionsPage.SKILLS)},
-    {label: 'MY_PROJECTS', icon: 'pi pi-fw pi-file', section: this.sectionsPage.PROYECTS, command: () => this.scrollTo(this.sectionsPage.PROYECTS)},
-    {label: 'MY_EXPERIENCE', icon: 'pi pi-fw pi-briefcase', section: this.sectionsPage.EXPERIENCE, command: () => this.scrollTo(this.sectionsPage.EXPERIENCE)},
-    {label: 'MY_CONTACT', icon: 'pi pi-fw pi-envelope', section: this.sectionsPage.CONTACT, command: () => this.scrollTo(this.sectionsPage.CONTACT)},
+    {label: 'MY_LANDSCAPE', section: this.sectionsPage.LANDSCAPE, command: () => {}, visible: false},
+    {label: 'MY_ABOUT_ME', icon: 'person', section: this.sectionsPage.ABOUT_ME, command: () => this.scrollTo(this.sectionsPage.ABOUT_ME), visible: true},
+    {label: 'MY_SKILLS', icon: 'psychology', section: this.sectionsPage.SKILLS, command: () => this.scrollTo(this.sectionsPage.SKILLS), visible: true},
+    {label: 'MY_EXPERIENCE', icon: 'business_center', section: this.sectionsPage.EXPERIENCE, command: () => this.scrollTo(this.sectionsPage.EXPERIENCE), visible: true},
   ];
 
   constructor(
@@ -38,7 +38,16 @@ export class InitPageComponent implements OnInit, AfterViewInit {
   }
 
   scrollTo(section: string) {
-      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+      const sectionElement = document.getElementById(section);
+      const scrollContainer = this.scrollContent?.nativeElement;
+
+      if (!sectionElement || !scrollContainer) return;
+
+      const newScrollTop = sectionElement.getBoundingClientRect().top  + scrollContainer.scrollTop - 50;
+      scrollContainer.scrollTo({
+        top: newScrollTop,
+        behavior: 'smooth' // Usa el scroll nativo suave
+      });
   }
 
   private selectScrolledSection() {
@@ -47,23 +56,30 @@ export class InitPageComponent implements OnInit, AfterViewInit {
     const options: IntersectionObserverInit = {
       root: null,
       rootMargin: `-${headerHeight}px 0px 0px 0px`,
-      threshold: [0.5] // activa cuando al menos 50% visible
+      threshold: [0.3] // activa cuando al menos 50% visible
     };
 
     this.scrollObserver = new IntersectionObserver((entries) => {
       // elegimos la entrada con mayor ratio intersectada
-      const visible = entries
+      const intersectingEntries  = entries
         .filter(e => e.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      const visible = intersectingEntries
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
 
       if (visible) {
         const id = visible.target.getAttribute('id') || '';
+
         this.setActive(id);
       }
     }, options);
 
     document.querySelectorAll<HTMLElement>('.my-section').forEach(s => {
       this.scrollObserver!.observe(s);
+    });
+
+    document.querySelectorAll<HTMLElement>('.my-landscape').forEach(l => {
+      this.scrollObserver!.observe(l);
     });
   }
 
@@ -75,7 +91,7 @@ export class InitPageComponent implements OnInit, AfterViewInit {
     this.activeSection = id;
     this.barMenuItems = this.barMenuItems.map(i => ({
       ...i,
-      styleClass: i.section === id ? 'active' : ''
+      active: i.section === id ? true : false
     }));
     this.cd.markForCheck();
   }

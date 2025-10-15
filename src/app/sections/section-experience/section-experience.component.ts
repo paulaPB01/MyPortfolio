@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { experienceFormationConstants } from 'src/app/constants/info.constants';
+import { experienceFormationConstants } from 'src/app/share/constants/info.constants';
 
 @Component({
   selector: 'app-section-experience',

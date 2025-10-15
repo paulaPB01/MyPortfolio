@@ -10,7 +10,9 @@
             <section class="section-experience_items">
                 <time class="section-experience_items_date">{{item.dates}}</time>
                 <ng-container *ngIf="item.type === 'EXP'; else formationTemplate">
-                    <div class="card section-experience_items_card" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'">
+                    <div class="card section-experience_items_card animate-scroll-item"
+                         [ngClass]="i % 2 === 0 ? 'fade-right' : 'fade-left'"
+                         appScrollAnimation="on-scroll">
                         <div class="section-experience_items_card_title">
                             <mat-icon class="margin-small-right">business_center</mat-icon>
                             <span>{{item.position}}</span>
@@ -28,7 +30,9 @@
                     </div>
                 </ng-container>
                 <ng-template #formationTemplate>
-                    <div class="card section-experience_items_card" [attr.data-aos]="i % 2 === 0 ? 'fade-left' : 'fade-right'">
+                    <div class="card section-experience_items_card animate-scroll-item"
+                         [ngClass]="i % 2 === 0 ? 'fade-right' : 'fade-left'"
+                         appScrollAnimation="on-scroll">
                         <div class="section-experience_items_card_content">
                             <div class="section-experience_items_card_content_title-formation">
                                 <mat-icon class="margin-small-right">school</mat-icon>{{item.position}}

@@ -1,17 +1,86 @@
 .section-about-me {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+
     &_container {
-        justify-content: center;
-        align-items: center;
+        padding: 80px 20%;
+    }
+
+    .circle {
+        width: 280px;
+        height: 250px;
+        float: left;
+        border-radius: 50%;
+        shape-outside: circle(50%);
+        align-content: center;
     }
 
     &_photo {
-        width: 200px;
-        height: 200px;
-        float: right;
+        width: 250px;
+        height: 250px;
+        float: left;
         border-radius: 50%;
-        background: url("../../../assets/img/foto_perfil.jpeg") no-repeat center center/cover;
-        -webkit-shape-outside: circle();
-        shape-outside: circle();
-        shape-margin: 16px;
+        // background: url("../../../assets/img/foto_perfil.jpeg") no-repeat center center/cover;
+        -webkit-shape-outside: circle(40%);
+        shape-outside: circle(40%);
+        shape-margin: 20px;
+        -webkit-shape-margin: 20px;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+    }
+}
+
+@media(max-width: 1200px) {
+    .section-about-me {
+
+        &_container {
+            padding: 40px 10%;
+        }
+    }
+}
+
+@media(max-width: 991px) {
+    .section-about-me {
+
+        &_container {
+            padding: 40px 0%;
+        }
+    }
+}
+
+@media(max-width: 768px) {
+    .section-about-me {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        flex-wrap: nowrap;
+
+        &_container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        &_photo {
+            margin: 0 auto 20px auto;
+            float: none;
+            shape-outside: none;
+            -webkit-shape-outside: none;
+        }
+
+        &_description {
+            margin-top: 22px;
+            text-align: left;
+        }
     }
 }

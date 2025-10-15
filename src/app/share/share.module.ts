@@ -5,6 +5,7 @@ import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { CommonModule } from "@angular/common";
 import { DynamicBarComponent } from "./dynamic-bar/dynamic-bar.component";
 import { LandscapeAnimationComponent } from "./landscape-animation/landscape-animation.component";
+import { ScrollAnimationDirective } from './directive/scroll-animation.directive';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -13,7 +14,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     DynamicBarComponent,
-    LandscapeAnimationComponent
+    LandscapeAnimationComponent,
+    ScrollAnimationDirective
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   exports: [
     DynamicBarComponent,
-    LandscapeAnimationComponent
+    LandscapeAnimationComponent,
+    ScrollAnimationDirective
   ]
 })
 

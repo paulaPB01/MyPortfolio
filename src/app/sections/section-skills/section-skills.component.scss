@@ -1,4 +1,8 @@
+@import "../../../styles.scss";
+
 .section-skills {
+    height: 100%;
+    padding: 0 52px;
 
     &_card {
         height: 100%;
@@ -19,6 +23,18 @@
             height: 100%;
             justify-items: center;
             justify-content: space-between;
+
+            &_title {
+                font-weight: bold;
+                margin-bottom: 8px;
+                color: $color-dark-text;
+                font-family: $font-family;
+            }
+
+            &_certified {
+                display: flex;
+                flex-direction: row;
+            }
         }
 
         &:hover {

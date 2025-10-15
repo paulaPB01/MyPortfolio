@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { skillsConstants } from 'src/app/constants/info.constants';
+import { skillsConstants } from 'src/app/share/constants/info.constants';
+import { SkillGroup } from 'src/app/share/model/dynamic-bar.model';
 
 @Component({
   selector: 'app-section-skills',
@@ -7,5 +8,5 @@ import { skillsConstants } from 'src/app/constants/info.constants';
   styleUrls: ['./section-skills.component.scss']
 })
 export class SectionSkillsComponent {
-  skillsList = skillsConstants;
+  skillsList: SkillGroup[] = skillsConstants;
 }

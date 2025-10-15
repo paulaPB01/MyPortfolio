@@ -1,3 +1,9 @@
 <div class="bar-menu">
-    <p-menubar [model]="items"/>
+    <!-- <p-menubar [model]="items"/> -->
+    <ng-container *ngFor="let item of items">
+        <div *ngIf="item.visible" class="bar-menu_item" [class.bar-menu_item_active]="item.active" (click)="item.command(item.section)">
+            <div class="bar-menu_item_icon margin-small-right"><mat-icon>{{item.icon}}</mat-icon></div>
+            <div class="bar-menu_item_label">{{item.label}}</div>
+        </div>
+    </ng-container>
 </div>

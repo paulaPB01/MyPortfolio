@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { aboutMeConstants, personalInformationConstant } from 'src/app/constants/info.constants';
+import { aboutMeConstants, personalInformationConstant } from 'src/app/share/constants/info.constants';
 
 
 @Component({
