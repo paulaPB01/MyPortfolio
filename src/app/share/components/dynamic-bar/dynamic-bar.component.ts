@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, Input, OnDestroy } from '@angular/core';
-import { DynamicBarModel } from '../model/dynamic-bar.model';
+import { DynamicBarModel } from '../../model/dynamic-bar.model';
 
 @Component({
   selector: 'app-dynamic-bar',

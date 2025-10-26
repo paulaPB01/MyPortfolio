@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InitPageComponent } from './init-page/init-page.component';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'init', pathMatch: 'full'},
-  {path: 'init', component: InitPageComponent}
+  {path: 'init', component: ProfilePageComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

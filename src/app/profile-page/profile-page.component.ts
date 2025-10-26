@@ -4,12 +4,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { myTranslateService } from '../share/services/myTranslate.service';
 
 @Component({
-  selector: 'app-init-page',
-  templateUrl: './init-page.component.html',
-  styleUrls: ['./init-page.component.scss']
+  selector: 'app-profile-page',
+  templateUrl: './profile-page.component.html',
+  styleUrls: ['./profile-page.component.scss']
 })
 
-export class InitPageComponent implements OnInit, AfterViewInit {
+export class ProfilePageComponent implements OnInit, AfterViewInit {
   @ViewChild('scrollContent') scrollContent: any;
   sectionsPage = sectionsPageConstants;
   private scrollObserver:  IntersectionObserver | null = null;
