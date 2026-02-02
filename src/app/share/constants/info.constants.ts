@@ -3,7 +3,7 @@ export const personalInformationConstant = {
 }
 
 export const aboutMeConstants = {
-    description: 'Ingeniera biomédica con experiencia en el desarrollo software. Tengo interés por laciencia de datos, especialmente por el diseño e implementación de modelos de machinelearning, inteligencia artificial y procesamiento del lenguaje natural en el ámbitobiosanitario. Busco poder desarrollar soluciones innovadoras en proyectos de medicinapreventiva, análisis clínico y salud digital.'
+    description: 'Ingeniera biomédica con experiencia en el desarrollo software. Tengo interés por la ciencia de datos, especialmente por el diseño e implementación de modelos de machine learning, inteligencia artificial y procesamiento del lenguaje natural en el ámbito biosanitario. Busco poder desarrollar soluciones innovadoras en proyectos de medicina preventiva, análisis clínico y salud digital.'
 }
 
 export const skillsConstants = [
@@ -14,21 +14,27 @@ export const skillsConstants = [
             {"name": "TypeScript", "level": 80},
             {"name": "HTML y CSS", "level": 80},
             {"name": "Angular", "level": 80},
-            {"name": "Python", "level": 70},
+            {"name": "Python", "level": 80},
             {"name": "Matlab", "level": 80},
+            {"name": "Control de versiones Git", "level": 70},
+            {"name": "Cloud Computing (AWS, Azure)", "level": 60,  "certificate": "AZ-900: Microsoft Azure Fundamentals"},
             {"name": "SQL", "level": 60},
             {"name": "R", "level": 40},
-            {"name": "Control de versiones Git", "level": 70},
-            {"name": "Cloud Computing (AWS, Azure)", "level": 50},
         ]   
     },
     {   groupSkill: [
+        {
+            "group":"Idiomas",
+            "skills": [
+                {"name": "Ingles", "certificate": "Cambridge B2 First"},
+            ]
+        },
         {   "group":"Análisis de datos",
             "skills": [
+                {"name": "Librerías de Analisis de datos (pandas, numPy, seaborn, spacy)", "level": 80},
+                {"name": "Librerías de machine learning (Scikit-learn, TensorFlow, scikit-image, cv2)", "level": 80},
+                {"name": "Procesamiento y visualización de datos (Origins, Matplotlib, Power BI)", "level": 60},
                 {"name": "Paquetes estadísticos (SPSS, Statgraphics, RStudio)", "level": 60},
-                {"name": "Librerías de Analisis de datos (Pandas, NumPy, Seaborn)", "level": 60},
-                {"name": "Visualización de datos (Origins, Matplotlib)", "level": 60},
-                {"name": "Librerías de machine learning (Scikit-learn, TensorFlow, Keras)", "level": 60},
             ]
         },
         {
@@ -37,12 +43,6 @@ export const skillsConstants = [
                 {"name": "Office365", "level": 90},
                 {"name": "Jira", "level": 50},
             ],
-        },
-        {
-            "group":"Idiomas",
-            "skills": [
-                {"name": "Ingles", "certificate": "Cambridge B2 First"},
-            ]
         }
     ]},
     {
@@ -94,7 +94,7 @@ export const experienceFormationConstants = [
             "Participé en el programa de 'Procesamiento de señales biomédicas y sistemas de ayuda al diagnóstico'.",
             "Segmenté y caractericé señales de EHG.",
             "Procesé y limpié bases de datos clínicos.",
-            "TRealicé analisis estadísticos de las diferencias significativas entre gestación única y múltiple.",
+            "Realicé analisis estadísticos de las diferencias significativas entre gestación única y múltiple.",
             "Interpreté y representé los resultados de las implicaciones en el trabajo del parto prematuro."
         ]
     },

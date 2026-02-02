@@ -1,4 +1,4 @@
-<div class="section-skills">
+<div class="section-skills container">
     <div class="row justify-content-center">
         <ng-container *ngFor="let skills of skillsList; let i = index">
             <div class="col-12 col-md-6 col-lg-4 margin-big-bottom">
@@ -24,9 +24,9 @@
                                 </div>
                                 <div *ngIf="skill?.certificate">
                                     <div class="align-content-end">
-                                        <div class="section-skills_card_container_title">{{skill.name}}</div>
+                                        <div *ngIf="!skill?.level" class="section-skills_card_container_title">{{skill.name}}</div>
                                         <div class="section-skills_card_container_certified">
-                                            <mat-icon class="margin-small-right">verified</mat-icon>
+                                            <mat-icon class="margin-small-right flex-none ">verified</mat-icon>
                                             <div>{{skill.certificate}}</div>
                                         </div>
                                     </div>

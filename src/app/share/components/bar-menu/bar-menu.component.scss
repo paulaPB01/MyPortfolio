@@ -99,3 +99,9 @@
         display: none !important;
     }
 }
+
+@media (max-width: 576px) {
+  .bar-menu_item_label {
+    display: none;
+  }
+}

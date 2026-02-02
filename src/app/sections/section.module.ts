@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { SectionAboutMeComponent } from "./section-about-me/section-about-me.component";
 import { SectionExperienceComponent } from "./section-experience/section-experience.component";
 import { SectionSkillsComponent } from "./section-skills/section-skills.component";
-import { SectionContactComponent } from "./section-contact/section-contact.component";
 import { SectionProyectsComponent } from "./section-proyects/section-proyects.component";
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from "@angular/common/http";
@@ -21,8 +20,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SectionAboutMeComponent,
     SectionSkillsComponent,
     SectionExperienceComponent,
-    SectionProyectsComponent,
-    SectionContactComponent,
+    SectionProyectsComponent
   ],
   imports: [
     CommonModule,
@@ -40,8 +38,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SectionAboutMeComponent,
     SectionSkillsComponent,
     SectionExperienceComponent,
-    SectionProyectsComponent,
-    SectionContactComponent,
+    SectionProyectsComponent
   ]
 })
 
