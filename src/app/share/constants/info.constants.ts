@@ -3,61 +3,102 @@ export const personalInformationConstant = {
 }
 
 export const aboutMeConstants = {
-    description: 'Ingeniera biomédica con experiencia en el desarrollo software. Tengo interés por la ciencia de datos, especialmente por el diseño e implementación de modelos de machine learning, inteligencia artificial y procesamiento del lenguaje natural en el ámbito biosanitario. Busco poder desarrollar soluciones innovadoras en proyectos de medicina preventiva, análisis clínico y salud digital.'
+    description: 'Ingeniera Biomédica con experiencia profesional en desarrollo de software para entornos hospitalarios y experiencia práctica en procesamiento de señales biomédicas y análisis de datos clínicos. Actualmente finalizo un Máster en Inteligencia Artificial y he participado en proyectos de machine learning, sistemas RAG, automatización, recomendaciones y modelado de supervivencia. Busco desarrollar soluciones de IA reproducibles aplicadas a salud digital, con foco en el análisis de datos clínicos y sistemas de apoyo al diagnóstico.'
 }
 
 export const skillsConstants = [
     {
-        "group":"Programación y desarrollo",
-         "skills": [
-            {"name": "JavaScript", "level": 80},
-            {"name": "TypeScript", "level": 80},
-            {"name": "HTML y CSS", "level": 80},
-            {"name": "Angular", "level": 80},
-            {"name": "Python", "level": 80},
-            {"name": "Matlab", "level": 80},
-            {"name": "Control de versiones Git", "level": 70},
-            {"name": "Cloud Computing (AWS, Azure)", "level": 60,  "certificate": "AZ-900: Microsoft Azure Fundamentals"},
-            {"name": "SQL", "level": 60},
-            {"name": "R", "level": 40},
+        groupSkill: [
+            {
+                "group":"Desarrollo Web",
+                "skills": [
+                    {"name": "Angular"},
+                    {"name": "Next.js API Routes"},
+                    {"name": "JavaScript"},
+                    {"name": "TypeScript"},
+                    {"name": "HTML y CSS"}
+                ]
+            },
+            {
+                "group":"Machine Learning y Ciencia de datos",
+                "skills": [
+                    {"name": "Python"},
+                    {"name": "Matlab"},
+                    {"name": "Scikit-learn"},
+                    {"name": "PyTorch"},
+                    {"name": "Keras"},
+                    {"name": "Tensorflow"},
+                    {"name": "Pandas"},
+                    {"name": "Numpy"},
+                    {"name": "Matplotlib"},
+                    {"name": "OpenCV"}
+                ]
+            },
+            {
+                "group":"Tratamiento y análisis de datos",
+                "skills": [
+                    {"name": "SQL"},
+                    {"name": "PostgreSQL"},
+                    {"name": "Supabase"},
+                    {"name": "APIs REST"},
+                    {"name": "pgvector"},
+                    {"name": "Power BI"}
+                ]
+            }
         ]   
     },
     {   groupSkill: [
-        {
-            "group":"Idiomas",
-            "skills": [
-                {"name": "Ingles", "certificate": "Cambridge B2 First"},
-            ]
-        },
-        {   "group":"Análisis de datos",
-            "skills": [
-                {"name": "Librerías de Analisis de datos (pandas, numPy, seaborn, spacy)", "level": 80},
-                {"name": "Librerías de machine learning (Scikit-learn, TensorFlow, scikit-image, cv2)", "level": 80},
-                {"name": "Procesamiento y visualización de datos (Origins, Matplotlib, Power BI)", "level": 60},
-                {"name": "Paquetes estadísticos (SPSS, Statgraphics, RStudio)", "level": 60},
-            ]
-        },
-        {
-            "group":"Gestión de proyectos",
-            "skills": [
-                {"name": "Office365", "level": 90},
-                {"name": "Jira", "level": 50},
-            ],
-        }
+            {
+                "group": "Herramientas de desarrollo y Cloud Computing",
+                "skills": [
+                    {"name": "GitHub/GitLab"},
+                    {"name": "Jira"},
+                    {"name": "Notion"},
+                    {"name": "Codex"},
+                    {"name": "Claude Code"},
+                    {"name": "AWS"},
+                    {"name": "Azure", "certificate": "AZ-900: Microsoft Azure Fundamentals"},
+                ]
+            },
+            {
+                "group":"Datos biomédicos",
+                "skills": [
+                    {"name": "Señales biomédicas"},
+                    {"name": "Neuroimagen"},
+                    {"name": "Bases de datos clínicos"},
+                ],
+            },
+            {
+                "group":"IA generativa",
+                "skills": [
+                    {"name": "RAG"},
+                    {"name": "Generación de embeddings"},
+                    {"name": "Prompt engineering"},
+                ]
+            }            
     ]},
-    {
-        "group": "Soft skills",
-         "skills": [
-            {"name": "Capacidad de aprendizaje", "level": 90},
-            {"name": "Capacidad de adaptación", "level": 90},
-            {"name": "Resolución de problemas", "level": 70},
-            {"name": "Trabajo en equipo", "level": 70},
-            {"name": "Comunicación", "level": 70},
-            {"name": "Toma de decisiones basadas en datos", "level": 80},
-            {"name": "Pensamiento analítico", "level": 80},
-            {"name": "Gestión de proyectos ágiles (Scrum, Kanban)", "level": 70}
+    {   groupSkill: [
+             {
+                "group":"Idiomas",
+                "skills": [
+                    {"name": "Ingles", "certificate": "Cambridge B2 First"},
+                ]
+            }, 
+            {
+                "group": "Competencias profesionales",
+                "skills": [
+                    {"name": "Capacidad de aprendizaje"},
+                    {"name": "Capacidad de adaptación"},
+                    {"name": "Resolución de problemas"},
+                    {"name": "Trabajo en equipo"},
+                    {"name": "Comunicación"},
+                    {"name": "Toma de decisiones basadas en datos"},
+                    {"name": "Pensamiento analítico"},
+                    {"name": "Metodologías ágiles (Scrum, Kanban)"}
+                ]
+            }  
         ]
-    }  
+    }
 ]
 
 export const experienceFormationConstants = [
@@ -76,30 +117,39 @@ export const experienceFormationConstants = [
         location: "Valencia",
         dates: "09/2023 – Actualidad",
         characteristics: [
-            "Desarrollo e implemento nuevas funcionalidades para un sistema HIS hospitalario usando Angular10+ y AngularJS.",
-            "Colaboro en la adaptación responsive de la aplicación.",
-            "Gestiono las versiones de código utilizando GitLab.",
-            "Trabajo en equipos multidisciplinares con metodologías Scrumb y entornos ágiles de desarrollo colaborativo.",
-            "Resuelvo problemas de bugs y soporte técnico a clientes."
+            "Desarrollo y mantengo nuevas funcionalidades para un sistema de información hospitalaria, utilizando Angular 10+ y AngularJS.",
+            "Traduzco necesidades clínicas en soluciones técnicas reales, colaborando con equipos multidisciplinares bajo metodologías Agile.",
+            "Resuelvo incidencias y gestiono el control de versiones con GitHub/GitLab.",
         ]
     },
     {
         id: 3, 
-        position: "Prácticas de Acercamiento a la CPI en la UPV",
+        position: "Prácticas de desarrollo Full Stack e IA Aplicada",
         type: "EXP",
-        company: "Centro de Investigación e Innovación en Bioingeniería",
-        location: "Valencia",
-        dates: "2021 – 2022",
+        company: "Cronuts, Barcelona",
+        location: "Remoto",
+        dates: "03/2026 – 6/2026",
         characteristics: [
-            "Participé en el programa de 'Procesamiento de señales biomédicas y sistemas de ayuda al diagnóstico'.",
-            "Segmenté y caractericé señales de EHG.",
-            "Procesé y limpié bases de datos clínicos.",
-            "Realicé analisis estadísticos de las diferencias significativas entre gestación única y múltiple.",
-            "Interpreté y representé los resultados de las implicaciones en el trabajo del parto prematuro."
+            "Desarrollé un portal de monitorización de campañas con Next.js, TypeScript, Supabase y BigQuery, automatizando sincronización documental, insights mensuales y alertas diarias.",
+            "Implementé funcionalidades de IA generativa con OpenAI: insights automatizados a partir de métricas de rendimiento y un chatbot con arquitectura RAG.",
+            "Apliqué prompt engineering y controles de uso mediante autenticación, limitación de peticiones y gestión del consumo de tokens.",
         ]
     },
     {
-        id: 4,
+        id: 4, 
+        position: "Prácticas de investigación en procesamiento de señales biomédicas",
+        type: "EXP",
+        company: "Centro de Investigación e Innovación en Bioingeniería, UPV",
+        location: "Remoto",
+        dates: "2021 – 2022",
+        characteristics: [
+            "Procesé, segmenté y caractericé señales EHG.",
+            "Realicé la limpieza, organización y validación de la bases de datos clínicas así como, el posterior análisis estadístico.",
+            "Interpreté y comuniqué los resultados, contextualizando y valorando sus posibles implicaciones clínicas."
+        ]
+    },
+    {
+        id: 5,
         position: "Grado en ingeniería biomédica",
         company: "Universidad Politécnica de Valencia",
         dates: "2019-2023",

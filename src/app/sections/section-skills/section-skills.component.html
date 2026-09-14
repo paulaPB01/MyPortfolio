@@ -1,7 +1,7 @@
 <div class="section-skills container">
     <div class="row justify-content-center">
         <ng-container *ngFor="let skills of skillsList; let i = index">
-            <div class="col-12 col-md-6 col-lg-4 margin-big-bottom">
+            <div class="col-12 col-xl-4 margin-big-bottom section-skills_column" [ngClass]="i === skillsList.length - 1 ? 'col-lg-12' : 'col-lg-6'">
                 <ng-container *ngIf="skills?.groupSkill; else singleSkill">
                     <ng-container *ngFor="let group of skills.groupSkill; let end = last">
                         <div class="row g-0 row-col-1" [class.margin-big-bottom]="!end">
@@ -18,18 +18,19 @@
                     <div class="card section-skills_card">
                         <span class="section-skills_card_title text-accent margin-medium-bottom">{{skills.group}}</span>
                         <div class="section-skills_card_container">
-                            <ng-container *ngFor="let skill of skills.skills">
-                                <div *ngIf="skill?.level">
+                            <ng-container *ngFor="let skill of skills.skills; let end = last">
+                                <span class="section-skills_card_container_item" [class.section-skills_card_container_item_certified]="skill?.certificate">
+                                  <span *ngIf="skill?.level">
                                     <app-dynamic-bar [item]="skill"></app-dynamic-bar>
-                                </div>
-                                <div *ngIf="skill?.certificate">
-                                    <div class="align-content-end">
-                                        <div *ngIf="!skill?.level" class="section-skills_card_container_title">{{skill.name}}</div>
-                                        <div class="section-skills_card_container_certified">
-                                            <mat-icon class="margin-small-right flex-none ">verified</mat-icon>
-                                            <div>{{skill.certificate}}</div>
-                                        </div>
-                                    </div>
+                                  </span>
+                                  <span *ngIf="!skill?.level" class="section-skills_card_container_title">{{skill.name}}</span>
+                                  <span *ngIf="!end" class="section-skills_card_container_bullet">&bull;</span>
+                                </span>
+                            </ng-container>
+                            <ng-container *ngFor="let skill of skills.skills">
+                                <div *ngIf="skill?.certificate" class="section-skills_card_container_certificate">
+                                    <mat-icon class="margin-small-right flex-none ">verified</mat-icon>
+                                    <span>{{skill.certificate}}</span>
                                 </div>
                             </ng-container>
                         </div>

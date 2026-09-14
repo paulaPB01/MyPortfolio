@@ -1,124 +1,71 @@
 @import "/src/styles.scss";
 
 .landscape-animation {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+
+  &_img {
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
+    background: url('../../../../assets/img/land33.png') no-repeat center center / cover;
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, rgba(0, 0, 0, 0.6) 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 60%, rgba(0, 0, 0, 0.6) 80%, transparent 100%);
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
 
-    &_img {
-        background:url( '../../../../assets/img/land33.png') no-repeat center center/cover;
-        width: 100%;
-        height: 100%;
-        -webkit-mask-image: linear-gradient(to bottom, black 60%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0) 100%);
-        mask-image: linear-gradient(to bottom, black 60%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0) 100%);
-        -webkit-mask-size: 100% 100%;
-        mask-size: 100% 100%;
-    }
+  }
 
-    &_text {
-        position: absolute;
-        max-width: 400px;
-        top: 60%;
-        left: 5%;
-        
-        h1 {
-            color: $color-main3;
-            font-size: 75px;
-            overflow: hidden;
-            white-space: nowrap;
-        }
+  &_text {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: min(90vw, 700px);
+    margin: 0;
+    padding: 0.6rem 1.5rem 0.75rem 0.8rem;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    color: $color-light-text;
+    background: radial-gradient(ellipse 85% 100% at 58% 52%, rgba(27, 5, 58, 0.25) 5%, transparent 100%);
+    border-radius: 0.9rem;
+    font-size: $font-small;
+    line-height: 1.45;
+    text-shadow: 0 1px 8px rgba(8, 2, 20, 0.55);
 
-        &_info {
-            background-color: rgba(46, 9, 93, 0.6);
-            padding-right: 12px;
-            border-radius: 8%;
-
-            div {
-                color: $color-light-text;
-                font-size: $font-small;
-                white-space: nowrap;
-                overflow: hidden;
-            }
-        }
+    &::first-line {
+      color: $color-main3;
+      font-size: clamp(3rem, 7vw, 4.7rem);
+      line-height: 1.05;
+      text-shadow: 0 1px 5px rgba(8, 2, 20, 0.35);
     }
 
-    .typing-line {
-         border-right: 0 solid transparent;
-        width: 0;
-        animation: typing 3s steps(40, end) forwards,
-                    blink 0.8s step-end infinite,
-                    hide-cursor 0s forwards 3s;
+    &::after {
+      display: inline-block;
+      width: 0.55ch;
+      margin-left: 0.12ch;
+      content: '|';
+      color: currentColor;
+      animation: blink 0.7s step-end infinite;
     }
+  }
 
-    // Delay para que aparezcan en orden
-    .line0 {
-        animation-delay: 0.5s, 0.5s, 3.5s;
-        border-right-color: $color-main3 !important;
+  @keyframes blink {
+    50% {
+      opacity: 0;
     }
-    .line1 {
-        animation-delay: 3.5s, 3.5s, 6.5s;
-        border-right-color: $color-light-text !important;
-    }
-    .line2 {
-        animation-delay: 6.5s, 6.5s, 7s;
-        border-right-color: $color-light-text !important;
-    }
-    .line3 {
-        animation-delay: 7s, 7s, 10s;
-        border-right-color: $color-light-text !important;
-    }
-    .line4 {
-        animation-delay: 10s, 10s, 11s;
-        border-right-color: $color-light-text !important;
-    }
-
-
-    /* Ocultar el cursor */
-    @keyframes hide-cursor {
-        to {
-            border-right: 0 solid transparent;
-        }
-    }
-
-    /* tus animaciones originales */
-    @keyframes typing {
-        from {
-            width: 0;
-            border-right: 2px solid transparent;
-        }
-        to {
-            width: 100%;
-            border-right-color: transparent !important;
-        }
-    }
-
-    @keyframes blink {
-        50% {
-            border-color: transparent;
-        }
-    }
+  }
 }
 
 @media (max-width: 425px) {
-  .landscape-animation {
+  .landscape-animation_text {
+    top: 56%;
+    font-size: $font-extra-small;
+  }
+}
 
-    &_img {
-        background-size: cover;
-    
-    }
-
-    &_text {
-        h1 {
-            font-size: 50px;
-        }
-
-        &_info {
-            
-            div {
-                font-size: $font-extra-small;
-            }
-        }
-    }
+@media (prefers-reduced-motion: reduce) {
+  .landscape-animation_text::after {
+    animation: none;
   }
 }

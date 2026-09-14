@@ -4,6 +4,12 @@
     height: 100%;
     padding: 0 52px;
 
+    &_column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     &_card {
         height: 100%;
         transition: 500ms;
@@ -17,23 +23,40 @@
         }
 
         &_container {
-            display:flex;
-            flex-direction: column;
+            display: block;
             padding: 0 20px;
             height: 100%;
-            justify-items: center;
-            justify-content: space-between;
+            line-height: 1.65;
 
             &_title {
                 font-weight: bold;
-                margin-bottom: 8px;
                 color: $color-dark-text;
                 font-family: $font-family;
             }
 
-            &_certified {
-                display: flex;
-                flex-direction: row;
+            &_item {
+                display: inline;
+                white-space: nowrap;
+
+                &_certified {
+                    display: inline-flex;
+                    vertical-align: top;
+                    white-space: nowrap;
+                }
+            }
+
+            &_certificate {
+                width: 100%;
+                display: inline-flex;
+                align-items: center;
+                margin-top: 2px;
+            }
+
+            &_bullet {
+                display: inline;
+                margin: 0 6px;
+                font-weight: bold;
+                color: $color-accent;
             }
         }
 
